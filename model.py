@@ -19,7 +19,7 @@ def open_file():
         phone_book[i] = contact
     original_book = deepcopy(phone_book)
 
-def save_file(new_contact: list[str]):
+def save_file():
     global phone_book
     data = []
     for contact in phone_book.values():
@@ -31,7 +31,10 @@ def save_file(new_contact: list[str]):
 
 def add_contact(new_contact: list[str]):
     global phone_book
-    c_id = max(phone_book)+1
+    if not phone_book:
+        c_id = 1
+    else:
+        c_id = max(phone_book) + 1
     phone_book[c_id] = new_contact
 
 def find_contact(word: str) -> dict[int, list[str]]:

@@ -33,8 +33,8 @@ def show_book(book: dict[int, list[str]], msg: str):
 
 def input_contact(msg: str) -> list[str]:
     contact = []
-    for input_contact in msg:
-        contact.append(input(text.input_text))
+    for input_text in msg:
+        contact.append(input(input_text))
     return contact
 
 def input_request(msg: str) -> str:

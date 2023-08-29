@@ -10,6 +10,12 @@ def search_contact():
     if result:
         return True
 
+
+def save_file():
+    model.save_file()
+    view.print_message(text.file_succesful(text.action_file[2]))
+
+
 def start():
     while True:
         choice = view.main_menu()
@@ -21,8 +27,7 @@ def start():
                 model.open_file()
                 view.print_message(text.file_succesful(text.action_file[1]))
             case 3:
-                model.save_file()
-                view.print_message(text.file_succesful(text.action_file[2]))
+                save_file()
             case 4:
                 view.show_book(model.phone_book, text.empty_book_error)
             case 5:
@@ -45,7 +50,6 @@ def start():
             case 9:
                 if model.original_book != model.phone_book:
                     if view.input_request(text.confirm_changes).lower() == 'y':
-                        model.save_file()
-                        view.print_message(text.save_succesful)
+                        save_file()
                 view.print_message(text.exit_program)
                 break
